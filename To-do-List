@@ -1,0 +1,33 @@
+import tkinter as tk
+# importando do tkinter a função messagebox
+from tkinter import messagebox
+
+# função pra quando apertar o botão
+def tarefa():
+   
+    items = tk.Entry.get()  # Obtém o texto da Entry
+    for item in items:  # Verifica se a entrada não está vazia
+        listaTarefas.insert(tk.END, tarefa)  # Adiciona a tarefa ao Listbox
+    
+
+# configurações da janela
+janela = tk.Tk()
+janela.title("To-Do List")
+janela.geometry("600x700")
+
+# configurações do rótulo
+rotulo = tk.Label(janela, text="Gerenciador de Tarefas")
+rotulo.pack(pady=20)
+
+listaTarefas = tk.Listbox(janela, height=25, width=80)
+listaTarefas.pack(pady=0)
+
+
+# configurações do botão
+botaoTarefa = tk.Button(janela, text="Adicionar Tarefa", command=tarefa).place(x=120, y=480)
+botaoConcluido = tk.Button(janela, text="Concluir Tarefa" ).place(x=260, y=480)
+botaoRemover = tk.Button(janela, text="Remover Tarefa").place(x=400, y=480)
+
+
+
+janela.mainloop()
